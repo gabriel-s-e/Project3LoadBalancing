@@ -1,0 +1,49 @@
+\doxysection{Web\+Server.\+h}
+\hypertarget{_web_server_8h_source}{}\label{_web_server_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WEBSERVER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Request.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_web_server}{WebServer}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ currentLoad;}
+\DoxyCodeLine{00011\ \ \ \ \ std::queue<Request>\ jobQueue;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ maxQueueSize;}
+\DoxyCodeLine{00013\ \ \ \ \ std::ofstream*\ logFile;\ \ \textcolor{comment}{//\ Pointer\ to\ a\ log\ file\ for\ logging\ server\ activities}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_web_server_a0e8e8b1fd4b234e6439f03e772d7ea5b}{WebServer}}(\textcolor{keywordtype}{int}\ serverID,\ \textcolor{keywordtype}{int}\ maxQueueSize,\ std::ofstream*\ logFilePtr\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_web_server_a038d23bb6cc8f321e30199bf17c9b7d0}{addRequest}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_request}{Request}}\&\ req);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_web_server_aa3252a22241e15f4de152e720f1fd670}{processJobs}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_web_server_a1a0af67c9becc318693d181e50efbd9f}{canAcceptRequest}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ getID()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ id;\ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ getCurrentLoad()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ currentLoad;\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ getQueueSize()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ jobQueue.size();\ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_web_server_a17e4111ec1b712e2913d59fce76db5a3}{isActive}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator>(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_web_server}{WebServer}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ currentLoad\ >\ other.currentLoad;}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_web_server}{WebServer}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ currentLoad\ <\ other.currentLoad;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator>=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_web_server}{WebServer}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ currentLoad\ >=\ other.currentLoad;}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_web_server}{WebServer}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ currentLoad\ <=\ other.currentLoad;}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

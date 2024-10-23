@@ -1,0 +1,44 @@
+\doxysection{Load\+Balancer.\+h}
+\hypertarget{_load_balancer_8h_source}{}\label{_load_balancer_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LOADBALANCER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LOADBALANCER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}WebServer.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Request.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_load_balancer}{LoadBalancer}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_load_balancer_a40f56ae81dc3f2e201a4d6e0d5788181}{LoadBalancer}}(std::priority\_queue<\mbox{\hyperlink{class_web_server}{WebServer}},\ std::vector<WebServer>,\ std::greater<>>\ servers,\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::queue<Request>\ requests,\ \textcolor{keywordtype}{int}\ runTime,\ \textcolor{keywordtype}{int}\ runDuration);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_load_balancer_abfc986f61730d73a6e19090033ec0d05}{addRandomRequests}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_load_balancer_a0d3cfa10319d41090b75aa218a80b162}{logFinalStatus}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_load_balancer_a21fe985c018f2ebeb9e4b1b3cc0289fa}{distributeRequests}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_load_balancer_a0f408f1c29ff23c415ab832a3653dae9}{logCycleInfo}}(\textcolor{keywordtype}{int}\ currentTime,\ \textcolor{keywordtype}{int}\ startingQueueSize,\ \textcolor{keywordtype}{int}\ endingQueueSize);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_load_balancer_ab5aab1e20c81ba5c32c5960d6c03d5ba}{go}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ resetTaskTimeRange();}
+\DoxyCodeLine{00029\ \ \ \ \ std::priority\_queue<WebServer,\ std::vector<WebServer>,\ std::greater<>>\ serverQueue;}
+\DoxyCodeLine{00030\ \ \ \ \ std::queue<Request>\ requestQueue;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ time;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ duration;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ minTaskTime;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ maxTaskTime;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ discardedRequests\ =\ 0;}
+\DoxyCodeLine{00036\ \ \ \ \ std::ofstream\ logFile;}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

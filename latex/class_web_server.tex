@@ -1,0 +1,124 @@
+\doxysection{Web\+Server Class Reference}
+\hypertarget{class_web_server}{}\label{class_web_server}\index{WebServer@{WebServer}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_web_server_a0e8e8b1fd4b234e6439f03e772d7ea5b}{Web\+Server}} (int server\+ID, int max\+Queue\+Size, std\+::ofstream \texorpdfstring{$\ast$}{*}log\+File\+Ptr=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_web_server}{Web\+Server} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_web_server_a038d23bb6cc8f321e30199bf17c9b7d0}{add\+Request}} (const \mbox{\hyperlink{struct_request}{Request}} \&req)
+\begin{DoxyCompactList}\small\item\em Adds a request to the server\textquotesingle{}s job queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_web_server_aa3252a22241e15f4de152e720f1fd670}{process\+Jobs}} ()
+\begin{DoxyCompactList}\small\item\em Processes jobs in the server\textquotesingle{}s job queue. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_web_server_a1a0af67c9becc318693d181e50efbd9f}{can\+Accept\+Request}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the server can accept a new request. \end{DoxyCompactList}\item 
+\Hypertarget{class_web_server_a8288663b7770da440ccbbb9818ccfc6b}\label{class_web_server_a8288663b7770da440ccbbb9818ccfc6b} 
+int {\bfseries get\+ID} () const
+\item 
+\Hypertarget{class_web_server_acf6a7cf094ae24cfc299d3a8097e9b83}\label{class_web_server_acf6a7cf094ae24cfc299d3a8097e9b83} 
+int {\bfseries get\+Current\+Load} () const
+\item 
+\Hypertarget{class_web_server_accb10de11f7c64ef6d92d77e985fc537}\label{class_web_server_accb10de11f7c64ef6d92d77e985fc537} 
+size\+\_\+t {\bfseries get\+Queue\+Size} () const
+\item 
+bool \mbox{\hyperlink{class_web_server_a17e4111ec1b712e2913d59fce76db5a3}{is\+Active}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the server has any active jobs. \end{DoxyCompactList}\item 
+\Hypertarget{class_web_server_ad88eca269093eb3f154e537131fa347e}\label{class_web_server_ad88eca269093eb3f154e537131fa347e} 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{class_web_server}{Web\+Server}} \&other) const
+\item 
+\Hypertarget{class_web_server_a2bbf5bc810ea50455fc72e0d507cadc1}\label{class_web_server_a2bbf5bc810ea50455fc72e0d507cadc1} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{class_web_server}{Web\+Server}} \&other) const
+\item 
+\Hypertarget{class_web_server_a0acf9d33920dff3e6a9d3604223fda24}\label{class_web_server_a0acf9d33920dff3e6a9d3604223fda24} 
+bool {\bfseries operator$>$=} (const \mbox{\hyperlink{class_web_server}{Web\+Server}} \&other) const
+\item 
+\Hypertarget{class_web_server_a8d7b32d5914b874f0384759c5c584a05}\label{class_web_server_a8d7b32d5914b874f0384759c5c584a05} 
+bool {\bfseries operator$<$=} (const \mbox{\hyperlink{class_web_server}{Web\+Server}} \&other) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_web_server_a0e8e8b1fd4b234e6439f03e772d7ea5b}\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{WebServer()}{WebServer()}}
+{\footnotesize\ttfamily \label{class_web_server_a0e8e8b1fd4b234e6439f03e772d7ea5b} 
+Web\+Server\+::\+Web\+Server (\begin{DoxyParamCaption}\item[{int}]{server\+ID}{, }\item[{int}]{max\+Queue\+Size}{, }\item[{std\+::ofstream \texorpdfstring{$\ast$}{*}}]{log\+File\+Ptr}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_web_server}{Web\+Server} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server\+ID} & Unique identifier for the server. \\
+\hline
+{\em max\+Queue\+Size} & Maximum number of requests the server can handle in its queue. \\
+\hline
+{\em log\+File\+Ptr} & Pointer to an ofstream object for logging purposes. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_web_server_a038d23bb6cc8f321e30199bf17c9b7d0}\index{WebServer@{WebServer}!addRequest@{addRequest}}
+\index{addRequest@{addRequest}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{addRequest()}{addRequest()}}
+{\footnotesize\ttfamily \label{class_web_server_a038d23bb6cc8f321e30199bf17c9b7d0} 
+void Web\+Server\+::add\+Request (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_request}{Request}} \&}]{req}{}\end{DoxyParamCaption})}
+
+
+
+Adds a request to the server\textquotesingle{}s job queue. 
+
+If the server can accept the request, it adds it to the job queue and increments the current load. If the queue is full, the request is rejected and logged.
+
+
+\begin{DoxyParams}{Parameters}
+{\em req} & The request to be added to the server\textquotesingle{}s queue. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_web_server_a1a0af67c9becc318693d181e50efbd9f}\index{WebServer@{WebServer}!canAcceptRequest@{canAcceptRequest}}
+\index{canAcceptRequest@{canAcceptRequest}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{canAcceptRequest()}{canAcceptRequest()}}
+{\footnotesize\ttfamily \label{class_web_server_a1a0af67c9becc318693d181e50efbd9f} 
+bool Web\+Server\+::can\+Accept\+Request (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the server can accept a new request. 
+
+\begin{DoxyReturn}{Returns}
+true If the server\textquotesingle{}s job queue has space for a new request. 
+
+false If the server\textquotesingle{}s job queue is full. 
+\end{DoxyReturn}
+\Hypertarget{class_web_server_a17e4111ec1b712e2913d59fce76db5a3}\index{WebServer@{WebServer}!isActive@{isActive}}
+\index{isActive@{isActive}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{isActive()}{isActive()}}
+{\footnotesize\ttfamily \label{class_web_server_a17e4111ec1b712e2913d59fce76db5a3} 
+bool Web\+Server\+::is\+Active (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the server has any active jobs. 
+
+\begin{DoxyReturn}{Returns}
+true If the server has jobs in its queue. 
+
+false If the server\textquotesingle{}s job queue is empty. 
+\end{DoxyReturn}
+\Hypertarget{class_web_server_aa3252a22241e15f4de152e720f1fd670}\index{WebServer@{WebServer}!processJobs@{processJobs}}
+\index{processJobs@{processJobs}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{processJobs()}{processJobs()}}
+{\footnotesize\ttfamily \label{class_web_server_aa3252a22241e15f4de152e720f1fd670} 
+void Web\+Server\+::process\+Jobs (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Processes jobs in the server\textquotesingle{}s job queue. 
+
+If the server has jobs in its queue, it will process the job at the front of the queue, decrementing its processing time and current load. If the job is completed, it will be removed from the queue. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Web\+Server.\+h\item 
+Web\+Server.\+cpp\end{DoxyCompactItemize}

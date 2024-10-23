@@ -1,0 +1,46 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+This file contains the main function to initialize and run the load balancer simulation.  
+
+
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}Load\+Balancer.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function that sets up and runs the load balancer simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the main function to initialize and run the load balancer simulation. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main function that sets up and runs the load balancer simulation. 
+
+Initializes a set number of web servers and generates a random set of requests. The \doxylink{class_load_balancer}{Load\+Balancer} then processes these requests over a specified duration of time.
+
+\begin{DoxyReturn}{Returns}
+int Returns 0 upon successful execution of the simulation. 
+\end{DoxyReturn}
+Loop to initialize the web servers.
+
+Each server is initialized with an ID and a pointer to the log file for logging activities. The servers are then added to the priority queue.
+
+Loop to generate and add random requests to the request queue.
+
+Each request is given random input and output IP addresses and a random processing time. Requests are logged in the log file.

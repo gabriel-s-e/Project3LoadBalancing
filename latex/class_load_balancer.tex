@@ -1,0 +1,109 @@
+\doxysection{Load\+Balancer Class Reference}
+\hypertarget{class_load_balancer}{}\label{class_load_balancer}\index{LoadBalancer@{LoadBalancer}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_load_balancer_a40f56ae81dc3f2e201a4d6e0d5788181}{Load\+Balancer}} (std\+::priority\+\_\+queue$<$ \mbox{\hyperlink{class_web_server}{Web\+Server}}, std\+::vector$<$ \mbox{\hyperlink{class_web_server}{Web\+Server}} $>$, std\+::greater$<$$>$ $>$ servers, std\+::queue$<$ \mbox{\hyperlink{struct_request}{Request}} $>$ requests, int run\+Time, int run\+Duration)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_load_balancer}{Load\+Balancer} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_abfc986f61730d73a6e19090033ec0d05}{add\+Random\+Requests}} ()
+\begin{DoxyCompactList}\small\item\em Adds a random request to the request queue at intervals. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_a0d3cfa10319d41090b75aa218a80b162}{log\+Final\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Logs the final status of the load balancer after the simulation ends. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_a21fe985c018f2ebeb9e4b1b3cc0289fa}{distribute\+Requests}} ()
+\begin{DoxyCompactList}\small\item\em Distributes requests to the available servers in the load balancer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_a0f408f1c29ff23c415ab832a3653dae9}{log\+Cycle\+Info}} (int current\+Time, int starting\+Queue\+Size, int ending\+Queue\+Size)
+\begin{DoxyCompactList}\small\item\em Logs the cycle information for the current simulation step. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_ab5aab1e20c81ba5c32c5960d6c03d5ba}{go}} ()
+\begin{DoxyCompactList}\small\item\em Runs the load balancer simulation for a specified duration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_load_balancer_a40f56ae81dc3f2e201a4d6e0d5788181}\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{LoadBalancer()}{LoadBalancer()}}
+{\footnotesize\ttfamily \label{class_load_balancer_a40f56ae81dc3f2e201a4d6e0d5788181} 
+Load\+Balancer\+::\+Load\+Balancer (\begin{DoxyParamCaption}\item[{std\+::priority\+\_\+queue$<$ \mbox{\hyperlink{class_web_server}{Web\+Server}}, std\+::vector$<$ \mbox{\hyperlink{class_web_server}{Web\+Server}} $>$, std\+::greater$<$$>$ $>$}]{servers}{, }\item[{std\+::queue$<$ \mbox{\hyperlink{struct_request}{Request}} $>$}]{requests}{, }\item[{int}]{run\+Time}{, }\item[{int}]{run\+Duration}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_load_balancer}{Load\+Balancer} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em servers} & A priority queue of \doxylink{class_web_server}{Web\+Server} objects, representing the servers to handle requests. \\
+\hline
+{\em requests} & A queue of \doxylink{struct_request}{Request} objects that the load balancer will distribute. \\
+\hline
+{\em run\+Time} & The starting time for the load balancer simulation. \\
+\hline
+{\em run\+Duration} & The duration for which the simulation will run. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_load_balancer_abfc986f61730d73a6e19090033ec0d05}\index{LoadBalancer@{LoadBalancer}!addRandomRequests@{addRandomRequests}}
+\index{addRandomRequests@{addRandomRequests}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{addRandomRequests()}{addRandomRequests()}}
+{\footnotesize\ttfamily \label{class_load_balancer_abfc986f61730d73a6e19090033ec0d05} 
+void Load\+Balancer\+::add\+Random\+Requests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Adds a random request to the request queue at intervals. 
+
+A new request is generated with a random IP address and processing time. This occurs with a 20\% probability. \Hypertarget{class_load_balancer_a21fe985c018f2ebeb9e4b1b3cc0289fa}\index{LoadBalancer@{LoadBalancer}!distributeRequests@{distributeRequests}}
+\index{distributeRequests@{distributeRequests}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{distributeRequests()}{distributeRequests()}}
+{\footnotesize\ttfamily \label{class_load_balancer_a21fe985c018f2ebeb9e4b1b3cc0289fa} 
+void Load\+Balancer\+::distribute\+Requests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Distributes requests to the available servers in the load balancer. 
+
+Attempts to assign each request in the request queue to the server with the least processing time. If a server cannot accept a request due to a full queue, the request is retained for later processing. \Hypertarget{class_load_balancer_ab5aab1e20c81ba5c32c5960d6c03d5ba}\index{LoadBalancer@{LoadBalancer}!go@{go}}
+\index{go@{go}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{go()}{go()}}
+{\footnotesize\ttfamily \label{class_load_balancer_ab5aab1e20c81ba5c32c5960d6c03d5ba} 
+void Load\+Balancer\+::go (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Runs the load balancer simulation for a specified duration. 
+
+Each cycle includes distributing requests, processing jobs in servers, and logging information. \Hypertarget{class_load_balancer_a0f408f1c29ff23c415ab832a3653dae9}\index{LoadBalancer@{LoadBalancer}!logCycleInfo@{logCycleInfo}}
+\index{logCycleInfo@{logCycleInfo}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{logCycleInfo()}{logCycleInfo()}}
+{\footnotesize\ttfamily \label{class_load_balancer_a0f408f1c29ff23c415ab832a3653dae9} 
+void Load\+Balancer\+::log\+Cycle\+Info (\begin{DoxyParamCaption}\item[{int}]{current\+Time}{, }\item[{int}]{starting\+Queue\+Size}{, }\item[{int}]{ending\+Queue\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Logs the cycle information for the current simulation step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Time} & The current time in the simulation. \\
+\hline
+{\em starting\+Queue\+Size} & The size of the request queue at the start of the cycle. \\
+\hline
+{\em ending\+Queue\+Size} & The size of the request queue at the end of the cycle. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_load_balancer_a0d3cfa10319d41090b75aa218a80b162}\index{LoadBalancer@{LoadBalancer}!logFinalStatus@{logFinalStatus}}
+\index{logFinalStatus@{logFinalStatus}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{logFinalStatus()}{logFinalStatus()}}
+{\footnotesize\ttfamily \label{class_load_balancer_a0d3cfa10319d41090b75aa218a80b162} 
+void Load\+Balancer\+::log\+Final\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Logs the final status of the load balancer after the simulation ends. 
+
+This includes the remaining requests in the queue, the status of each server, and the number of discarded requests. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Load\+Balancer.\+h\item 
+Load\+Balancer.\+cpp\end{DoxyCompactItemize}
